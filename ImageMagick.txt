@@ -1,0 +1,8 @@
+Website
+https://imagemagick.org/index.php
+
+exporting a svg file to a png file:
+convert icon.svg -scale 32 tmp/32.png
+
+pack several several of such png files in a final ico file
+convert tmp/16.png tmp/32.png tmp/48.png tmp/128.png tmp/256.png  icon.ico

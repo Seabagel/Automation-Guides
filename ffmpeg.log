@@ -1,0 +1,28 @@
+Extract Audio from MP4 Video using FFMPEG Easy
+https://www.youtube.com/watch?time_continue=32&v=SaJK8bZs0bw&feature=emb_title
+
+How to create GIFs with FFmpeg
+https://medium.com/@Peter_UXer/small-sized-and-beautiful-gifs-with-ffmpeg-25c5082ed733
+
+Convert images to gif with framerate
+ffmpeg -framerate 2 -i %d.png out.gif
+
+Random shit
+for i in *.avi; do ffmpeg -i "$i" -qscale 0 "$(basename "$i" .avi)".mov  ; done
+FOR /F "tokens=*" %G IN ('dir /b *.flac') DO ffmpeg -i "%G" -acodec mp3 "%~nG.mp3"
+for i in *.avi do name=echo "$i" | cut -d'.' -f1 echo "$name" ffmpeg -i "$i" "${name}.mov" done
+
+1. Basic For in loop
+for %i in (*.mp4) do ffmpeg -i "%i" "%~ni.mp3"
+
+2. Singular gif to MP4 conversion
+ffmpeg -r 30 -i input.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)2:trunc(ih/2)2" output.mp4
+
+3. Simplified Single gif to MP4 conversion
+ffmpeg -i benji.gif -f mp4 -pix_fmt yuv420p benji.mp4
+
+4. Folder gif to MP4 conversion
+for %i in (.gif) do ffmpeg -y -i "%i" -f mp4 -pix_fmt yuv420p -vf "scale=trunc(iw/2)2:trunc(ih/2)*2" "%~ni.mp4"
+
+Convert image to icon
+ffmpeg -i img.png -vf scale=32:32 img.ico
